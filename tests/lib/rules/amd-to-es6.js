@@ -16,12 +16,29 @@ ruleTester.run("amd-to-es6", rule, {
         {
             code: "import x from \"x\""
         },
-		{
+        {
             code: "console.log('nice')"
+        },
+        {
+            code: "export default class {}"
         }
     ],
 
     invalid: [
+        {
+            code: `define(["Some"], function(Some) {${[
+                "var x = 1;",
+                "return Some(x);"
+            ].join("\n")}})`,
+            errors: [
+                { messageId: "amdNotAllowed" }
+            ],
+            output: [
+                "import Some from \"Some\";\n",
+                "var x = 1;\n",
+                "export default Some(x);"
+            ].join("")
+        },
         {
             code: "define(['x' + 1], function(x) {})",
             errors: [
@@ -38,9 +55,7 @@ ruleTester.run("amd-to-es6", rule, {
             code: `define([
                 'funcs',
                 'Rows'
-            ], function(f, Rows) {
-                f.some(Rows);
-            })`,
+            ], function(f, Rows) {f.some(Rows);})`,
             errors: [
                 { messageId: "amdNotAllowed" }
             ],
@@ -53,9 +68,7 @@ ruleTester.run("amd-to-es6", rule, {
         {
             code: `define([
                 "funcs"
-            ], function(f) {
-                f.nice();
-            })`,
+            ], function(f) {f.nice();})`,
             errors: [
                 { messageId: "amdNotAllowed" }
             ],
@@ -78,7 +91,7 @@ ruleTester.run("amd-to-es6", rule, {
             ],
             output: "console.log(\"test\");"
         },
-		{
+        {
             code: "define(['x'])",
             errors: [
                 { messageId: "amdArgumentsShouldBeVariables" }
