@@ -15,6 +15,9 @@ ruleTester.run("amd-to-es6", rule, {
     valid: [
         {
             code: "import x from \"x\""
+        },
+		{
+            code: "console.log('nice')"
         }
     ],
 
@@ -74,6 +77,12 @@ ruleTester.run("amd-to-es6", rule, {
                 { messageId: "amdNotAllowed" }
             ],
             output: "console.log(\"test\");"
+        },
+		{
+            code: "define(['x'])",
+            errors: [
+                { messageId: "amdArgumentsShouldBeVariables" }
+            ]
         }
     ]
 });
