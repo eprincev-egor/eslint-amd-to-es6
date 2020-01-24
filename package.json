@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-no-cyrillic-string",
+  "name": "eslint-plugin-amd-to-es6",
   "version": "0.0.1",
   "description": "eslint plugin for convert amd style to es6 import/export",
   "keywords": [
