@@ -1,13 +1,18 @@
 {
-  "name": "eslint-plugin-g-soft",
-  "version": "0.0.24",
-  "description": "G-soft rules for code formatting",
+  "name": "eslint-plugin-no-cyrillic-string",
+  "version": "0.0.1",
+  "description": "eslint plugin for convert amd style to es6 import/export",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "amd",
+    "es6",
+    "import",
+    "export",
+    "fix"
   ],
-  "author": "g-soft",
+  "author": "Eprincev Egor",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
