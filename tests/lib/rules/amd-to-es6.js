@@ -26,6 +26,19 @@ ruleTester.run("amd-to-es6", rule, {
 
     invalid: [
         {
+            code: `define([
+                "funcs",
+                "css!some/style.css"
+            ], (f) => {})`,
+            errors: [
+                { messageId: "amdNotAllowed" }
+            ],
+            output: [
+                "import f from \"funcs\";\n",
+                "import \"css!some/style.css\";\n"
+            ].join("")
+        },
+        {
             code: `define(["Some"], function(Some) {${[
                 "var x = 1;",
                 "return Some(x);"
