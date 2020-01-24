@@ -1,0 +1,25 @@
+{
+  "name": "eslint-plugin-g-soft",
+  "version": "0.0.24",
+  "description": "G-soft rules for code formatting",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "g-soft",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.15.1",
+    "mocha": "^6.0.2"
+  },
+  "license": "ISC"
+}
