@@ -26,6 +26,15 @@ ruleTester.run("amd-to-es6", rule, {
 
     invalid: [
         {
+            code: "define([], (f) => {\"use strict\";console.log(\"nice\")})",
+            errors: [
+                { messageId: "amdNotAllowed" }
+            ],
+            output: [
+                "console.log(\"nice\")"
+            ].join("")
+        },
+        {
             code: `define([
                 "funcs",
                 "css!some/style.css"
