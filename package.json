@@ -1,18 +1,20 @@
 {
-  "name": "eslint-plugin-amd-to-es6",
-  "version": "0.0.3",
-  "description": "eslint plugin for convert amd style to es6 import/export",
+  "name": "eslint-plugin-no-amd",
+  "version": "0.0.1",
+  "description": "eslint plugin for transform amd style to import/export",
   "keywords": [
     "eslint",
     "eslintplugin",
+    "plugin",
     "eslint-plugin",
     "amd",
     "es6",
+    "no-amd",
     "import",
     "export",
     "fix"
   ],
-  "author": "Eprincev Egor",
+  "author": "Egor Eprincev",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
