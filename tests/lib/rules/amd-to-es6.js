@@ -26,6 +26,34 @@ ruleTester.run("amd-to-es6", rule, {
 
     invalid: [
         {
+            code: `define([
+                "Form"
+            ], function(
+                Form
+            ) {
+"use strict";
+
+                return Form.extend("MyForm", {
+                    
+                });
+});
+`,
+            errors: [
+                { messageId: "amdNotAllowed" }
+            ],
+            output: [
+                `import Form from "Form";
+
+
+
+                export default Form.extend("MyForm", {
+                    
+                });
+
+`
+            ].join("")
+        },
+        {
             code: "define([], (f) => {\"use strict\";console.log(\"nice\")})",
             errors: [
                 { messageId: "amdNotAllowed" }
